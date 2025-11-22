@@ -3,10 +3,10 @@
 import { useState } from "react";
 import { loginUser } from "./helpers/loginUser";
 import { useRouter } from "next/navigation";
-import useAdminSession from "./hooks/useAdminSession";
+import { useAdminSessionContext } from "./context/AdminSessionContext";
 
 export default function Home() {
-  const { setToken } = useAdminSession();
+  const { setToken } = useAdminSessionContext();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();

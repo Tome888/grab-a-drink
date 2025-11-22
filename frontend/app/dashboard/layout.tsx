@@ -1,17 +1,17 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import useAdminSession from "../hooks/useAdminSession";
 import { useEffect } from "react";
 import NavBar from "../components/NavBar";
 import Sidebar from "../components/Sidebar";
+import { useAdminSessionContext } from "../context/AdminSessionContext";
 
 export default function DashboardLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const { token } = useAdminSession();
+  const { token } = useAdminSessionContext();
   const router = useRouter();
 
   useEffect(() => {

@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const http = require("http");
 const { Server } = require("socket.io");
+const path = require("path");
 
 const routes = require("./routes");
 
@@ -18,6 +19,8 @@ app.use(cors());
 app.use(express.json());
 
 app.use("/api", routes);
+app.use("/api/menu", require("./routes/getMenu"));
+app.use("/images", express.static(path.join(__dirname, "images")));
 
 io.on("connection", (socket) => {
   console.log("A user connected:", socket.id);

@@ -22,7 +22,7 @@ router.post("/", (req, res) => {
     res.json({
       ok: true,
       message: "Token is valid",
-      user: decoded, // { id, username, iat, exp }
+      user: decoded, 
     });
   } catch (err) {
     res.status(401).json({ ok: false, message: "Invalid or expired token" });

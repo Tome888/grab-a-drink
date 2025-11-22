@@ -27,7 +27,6 @@ export default function Sidebar() {
         collapsed ? "w-20" : "w-64"
       }`}
     >
-      {/* Toggle button */}
       <div className="flex justify-end p-2">
         <button
           onClick={() => setCollapsed(!collapsed)}
@@ -37,7 +36,6 @@ export default function Sidebar() {
         </button>
       </div>
 
-      {/* Routes */}
       <ul className="mt-4 space-y-2">
         {routes.map((route) => {
           const isActive = pathname === route.path;
@@ -51,7 +49,6 @@ export default function Sidebar() {
                     : "text-gray-800 dark:text-gray-200 hover:bg-blue-500 hover:text-white"
                 }`}
               >
-                {/* Show full label if expanded, else first letter */}
                 <span className="font-semibold">
                   {collapsed ? route.label.charAt(0) : route.label}
                 </span>

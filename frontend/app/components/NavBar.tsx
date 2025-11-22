@@ -1,10 +1,10 @@
 "use client"
 
 import { useRouter } from "next/navigation";
-import useAdminSession from "../hooks/useAdminSession";
+import { useAdminSessionContext } from "../context/AdminSessionContext";
 
 export default function NavBar() {
-  const { setToken } = useAdminSession();
+  const { setToken } = useAdminSessionContext();
   const router = useRouter();
 
   const handleLogout = () => {
