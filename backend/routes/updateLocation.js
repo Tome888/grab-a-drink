@@ -7,7 +7,7 @@ const SECRET = "THIS-SHOULD-BE-IN-ENV-FILE";
 
 const validateLat = (lat) => typeof lat === "number" && lat >= -90 && lat <= 90;
 const validateLon = (lon) => typeof lon === "number" && lon >= -180 && lon <= 180;
-const validateRadius = (radius) => typeof radius === "number" && radius > 0 && radius <= 1000; 
+const validateRadius = (radius) => typeof radius === "number" && radius > 0 && radius <= 100000; 
 
 router.put("/", (req, res) => {
   try {

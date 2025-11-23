@@ -13,6 +13,9 @@ const deleteTableRoute = require("./deleteTable");
 const getMenu = require("./getMenu");
 const delMenuItem = require("./deleteMenuItem");
 const addMenuitem = require("./addMenuItem")
+const validateLocation= require("./validateLocation")
+const validateOrderToken= require("./validateOrderToken")
+
 
 
 router.use("/", test);
@@ -27,6 +30,8 @@ router.use("/delete-table", deleteTableRoute);
 router.use("/menu", getMenu);
 router.use("/delete-menu", delMenuItem);
 router.use("/add-menu-item", addMenuitem);
+router.use("/validate-location", validateLocation);
+router.use("/validate-order-token", validateOrderToken);
 
 
 module.exports = router;

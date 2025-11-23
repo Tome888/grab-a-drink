@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 
-interface MenuItem {
+export interface MenuItem {
   id: number;
   name: string;
   price: number;
