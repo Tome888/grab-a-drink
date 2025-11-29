@@ -120,8 +120,8 @@ const initMenuTable = () => {
 };
 
 
-// const resetOrders = db.transaction(() => {
-// });
+const resetOrders = db.transaction(() => {
+});
 
 const initOrdersTable = () => {
   db.prepare(`DROP TABLE IF EXISTS orders`).run();
@@ -131,9 +131,12 @@ const initOrdersTable = () => {
     CREATE TABLE orders (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       table_id INTEGER,
+      table_name TEXT,
       drink_id INTEGER,
       drink_name TEXT,
-      drink_price REAL
+      drink_price REAL,
+      quantity INTEGER,
+      seen INTEGER DEFAULT 0
     )
   `
   ).run();

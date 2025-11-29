@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const db = require("../db");
 const jwt = require("jsonwebtoken");
-const SECRET_KEY = "THIS-SHOULD-BE-IN-ENV-FILE";
+const SECRET_KEY = "THIS-SHOULD-BE-IN-ENV-FILE-ORDER";
 const TOKEN_EXPIRY = "120m";
 
 function getDistanceFromLatLonInKm(lat1, lon1, lat2, lon2) {

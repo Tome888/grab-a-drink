@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import dynamic from "next/dynamic";
+import Link from "next/link";
 
 const QRCode = dynamic(
   () => import("qrcode.react").then((mod) => mod.QRCodeCanvas),
@@ -16,14 +17,21 @@ interface TableModalProps {
   token: string;
 }
 
-export default function TableModal({ table, onClose, id, onDeleteSuccess, token }: TableModalProps) {
+export default function TableModal({
+  table,
+  onClose,
+  id,
+  onDeleteSuccess,
+  token,
+}: TableModalProps) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
   if (!table) return null;
 
   const handleDelete = async () => {
-    if (!confirm(`Are you sure you want to delete table "${table.name}"?`)) return;
+    if (!confirm(`Are you sure you want to delete table "${table.name}"?`))
+      return;
 
     setLoading(true);
     setError("");
@@ -57,7 +65,15 @@ export default function TableModal({ table, onClose, id, onDeleteSuccess, token 
         <p className="text-gray-700 dark:text-gray-200 mb-4">
           This is a popup for table <strong>{table.name}</strong>.
         </p>
-        <h2 className="mb-4">ID: {id}</h2>
+
+        <div className="mb-4 gap-1 flex items-start
+        flex-col justify-start">
+          <h2>ID: {id}</h2>
+
+          <Link href={qrUrl} target="_blank" rel="noopener noreferrer" className="underline">
+            Visit order page TABLE
+          </Link>
+        </div>
 
         <div className="my-4 flex justify-center">
           <QRCode value={qrUrl} size={128} />

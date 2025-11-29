@@ -5,7 +5,8 @@ import { MenuItem } from "../hooks/useMenu";
 
 interface Props extends MenuItem {
   currentQty?: number;
-  onAddOrUpdate: (item: MenuItem, quantity: number) => void;
+  onAddOrUpdate: (item: MenuItem, quantity: number, tableId:number) => void;
+tableId:number
 }
 
 export default function DrinkCard({
@@ -14,11 +15,11 @@ export default function DrinkCard({
   price,
   img_path,
   currentQty,
+  tableId,
   onAddOrUpdate,
 }: Props) {
   const [open, setOpen] = useState(false);
   const [qty, setQty] = useState(1);
-
   useEffect(() => {
     if (currentQty) setQty(currentQty);
   }, [currentQty]);
@@ -27,13 +28,12 @@ export default function DrinkCard({
   const decrease = () => setQty((q) => (q > 1 ? q - 1 : 1));
 
   const handleAdd = () => {
-    onAddOrUpdate({ id, name, price, img_path }, qty);
+    onAddOrUpdate({ id, name, price, img_path}, qty, tableId );
     setOpen(false);
   };
 
   return (
     <>
-      {/* CARD */}
       <div
         onClick={() => setOpen(true)}
         className="cursor-pointer bg-white rounded-xl shadow-md hover:shadow-xl transition p-3 flex flex-col items-center text-center text-black"
@@ -47,7 +47,6 @@ export default function DrinkCard({
         <p className="text-sm">${price}</p>
       </div>
 
-      {/* POPUP */}
       {open && (
         <div
           className="fixed inset-0 bg-black/50 flex justify-center items-center p-4 z-50"
@@ -66,7 +65,6 @@ export default function DrinkCard({
             <h2 className="text-xl font-bold">{name}</h2>
             <p className="text-lg mt-1 mb-4">${price}</p>
 
-            {/* Quantity */}
             <div className="flex items-center justify-center gap-4 mb-4">
               <button
                 onClick={decrease}

@@ -15,6 +15,8 @@ const delMenuItem = require("./deleteMenuItem");
 const addMenuitem = require("./addMenuItem")
 const validateLocation= require("./validateLocation")
 const validateOrderToken= require("./validateOrderToken")
+const getOrders = require("./getOrders")
+const putSeen = require("./putSeen")
 
 
 
@@ -32,6 +34,8 @@ router.use("/delete-menu", delMenuItem);
 router.use("/add-menu-item", addMenuitem);
 router.use("/validate-location", validateLocation);
 router.use("/validate-order-token", validateOrderToken);
+router.use("/get-orders", getOrders);
+router.use("/put-seen", putSeen);
 
 
 module.exports = router;
