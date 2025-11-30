@@ -6,7 +6,7 @@ const DEFAULT_PASSWORD = "Password123";
 
 const DEFAULT_LAT = 41.9981;
 const DEFAULT_LON = 21.4254;
-const DEFAULT_RADIUS = 10000;
+const DEFAULT_RADIUS = 100000;//meaters
 
 const resetUsers = db.transaction(() => {
   db.prepare(

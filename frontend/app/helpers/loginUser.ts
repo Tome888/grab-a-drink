@@ -1,7 +1,9 @@
 "use client"
 
-import { LoginObject } from "../types/user";
-
+interface LoginObject{
+    username: string
+    password: string
+}
 export const loginUser = async (
   creds: LoginObject,
   setTheToken: (token: string) => void
