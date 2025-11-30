@@ -17,7 +17,6 @@ export const validateLocation = async ({ setTheToken, tableId }: validLocP) => {
         tableId: tableId,
       };
 
-      console.log(coords);
 
       try {
         const res = await fetch("http://localhost:5000/api/validate-location", {
@@ -31,7 +30,6 @@ export const validateLocation = async ({ setTheToken, tableId }: validLocP) => {
         const data = await res.json();
 
         if (res.ok && data.token) {
-          console.log("Location valid, token received:", data.token);
           localStorage.setItem("orderToken", data.token);
           setTheToken?.(data.token);
         } else {

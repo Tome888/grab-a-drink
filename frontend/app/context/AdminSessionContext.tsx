@@ -32,10 +32,7 @@ export function AdminSessionProvider({ children }: { children: ReactNode }) {
     })
       .then(res => res.json())
       .then(data => {
-        if (data.ok) {
-          console.log("Token valid for user:", data.user);
-        } else {
-          console.log("Token invalid");
+        if (!data.ok) {
           localStorage.removeItem("tokenDash");
           setToken(null);
           router.push("/");

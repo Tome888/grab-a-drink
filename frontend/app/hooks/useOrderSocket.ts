@@ -26,9 +26,6 @@ export function useOrderSocket(tableId?: string):OrderHookProps {
 
     const socket = socketRef.current;
 
-    socket.on("connect", () => {
-      console.log("Connected to socket:", socket.id);
-    });
     return () => {
       socket.disconnect();
       socketRef.current = null;

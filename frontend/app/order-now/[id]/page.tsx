@@ -90,7 +90,6 @@ export default function OrderNow() {
         tableName: currentTable?.name || `Table ${id}`,
     };
 
-    console.log(`${item.name} SENT:`, orderItem);
     sendOrderSocket([orderItem]); 
     
     setStatusMessage(`${item.name} successfully requested!`);

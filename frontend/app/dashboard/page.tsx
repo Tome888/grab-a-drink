@@ -1,5 +1,4 @@
-"use client";
-
+"use client"
 import { useMemo } from "react";
 import { useOrdersFetcher } from "../hooks/useOrdersFetcher";
 import {
@@ -40,18 +39,16 @@ export default function Dashboard() {
 
       <div className="mt-6">
         <h3 className="text-xl font-medium text-gray-300 mb-4">
-          Drink Orders Summary
+          Drink Orders Analytics
         </h3>
 
-        <div className="w-full h-80">
-          {chartData.length > 0 && (
+        <div className="w-full h-80 flex items-center justify-center border-2 border-dashed border-gray-500 rounded-lg">
+          {chartData.length > 0 ? (
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={chartData}>
                 <CartesianGrid strokeDasharray="3 3" />
-
                 <XAxis dataKey="name" />
                 <YAxis />
-
                 <Tooltip
                   contentStyle={{
                     backgroundColor: "#1f2937",
@@ -62,18 +59,19 @@ export default function Dashboard() {
                   itemStyle={{ color: "white" }}
                   labelStyle={{ color: "#93c5fd" }}
                 />
-
-                <Bar
-                  dataKey="total"
-                  fill="#4A90E2"
-                  radius={[6, 6, 0, 0]}
-                />
+                <Bar dataKey="total" fill="#4A90E2" radius={[6, 6, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
+          ) : (
+            <p className="text-gray-400 text-lg">
+              No order data available to display analytics.
+            </p>
           )}
         </div>
       </div>
     </div>
   );
 }
+
+
 

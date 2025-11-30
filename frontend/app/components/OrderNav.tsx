@@ -215,7 +215,7 @@ export default function OrderNav({
                 
                 {orderToken ? (
                   <button
-                    onClick={isOrderSendable ? onSendOrder : () => {}} // Call sendOrder only if token is present
+                    onClick={isOrderSendable ? onSendOrder : () => {}} 
                     disabled={!isOrderSendable}
                     className={`mt-2 w-full p-3 rounded-lg font-bold transition ${
                       isOrderSendable 

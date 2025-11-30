@@ -11,7 +11,6 @@ export function useAddTable(refetch: () => void, token: string) {
     setError("");
 
     try {
-        console.log(token)
       const res = await fetch("http://localhost:5000/api/add-table", {
         method: "POST",
         headers: {

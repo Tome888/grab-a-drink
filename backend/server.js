@@ -25,7 +25,6 @@ app.use("/api/menu", require("./routes/getMenu"));
 app.use("/images", express.static(path.join(__dirname, "images")));
 
 io.on("connection", (socket) => {
-  console.log("A user connected:", socket.id);
 
   socket.on("orders", (data) => {
     if (!Array.isArray(data)) return;
